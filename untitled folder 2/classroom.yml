@@ -1,0 +1,337 @@
+name: Autograding Tests
+'on':
+- push
+- workflow_dispatch
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: 'Test 1.1 '
+      id: test-1-1
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: 'Test 1.1 '
+        setup-command: sudo -H pip3 install pytest
+        command: 'pytest hw2task1_test.py::TestMainFunction::test_main_input_calls
+          --tb=short '
+        timeout: 10
+        max-score: 1
+    - name: 'Test 1.2 '
+      id: test-1-2
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: 'Test 1.2 '
+        setup-command: sudo -H pip3 install pytest
+        command: 'pytest hw2task1_test.py::TestMainFunction::test_input_vowel --tb=short '
+        timeout: 10
+        max-score: 3
+    - name: 'Test 1.3 '
+      id: test-1-3
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: 'Test 1.3 '
+        setup-command: sudo -H pip3 install pytest
+        command: 'pytest hw2task1_test.py::TestMainFunction::test_input_consonant
+          --tb=short '
+        timeout: 10
+        max-score: 3
+    - name: 'Test 1.4 '
+      id: test-1-4
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: 'Test 1.4 '
+        setup-command: sudo -H pip3 install pytest
+        command: 'pytest hw2task1_test.py::TestMainFunction::test_input_y --tb=short '
+        timeout: 10
+        max-score: 3
+    - name: 'Test 2.1 '
+      id: test-2-1
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: 'Test 2.1 '
+        setup-command: sudo -H pip3 install pytest
+        command: 'pytest hw2task2_test.py::TestMainFunction::test_main_input_calls
+          --tb=short '
+        timeout: 10
+        max-score: 0
+    - name: 'Test 2.2 '
+      id: test-2-2
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: 'Test 2.2 '
+        setup-command: sudo -H pip3 install pytest
+        command: 'pytest hw2task2_test.py::TestMainFunction::test_winter --tb=short '
+        timeout: 10
+        max-score: 3
+    - name: 'Test 2.3 '
+      id: test-2-3
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: 'Test 2.3 '
+        setup-command: sudo -H pip3 install pytest
+        command: 'pytest hw2task2_test.py::TestMainFunction::test_spring --tb=short '
+        timeout: 10
+        max-score: 3
+    - name: 'Test 2.4 '
+      id: test-2-4
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: 'Test 2.4 '
+        setup-command: sudo -H pip3 install pytest
+        command: 'pytest hw2task2_test.py::TestMainFunction::test_summer --tb=short '
+        timeout: 10
+        max-score: 3
+    - name: 'Test 2.5 '
+      id: test-2-5
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: 'Test 2.5 '
+        setup-command: sudo -H pip3 install pytest
+        command: 'pytest hw2task2_test.py::TestMainFunction::test_fall --tb=short '
+        timeout: 10
+        max-score: 3
+    - name: Test 3.1
+      id: test-3-1
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 3.1
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task3_test.py::TestMainFunction::test_main_input_calls
+          --tb=short
+        timeout: 10
+        max-score: 3
+    - name: Test 3.2
+      id: test-3-2
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 3.2
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task3_test.py::TestMainFunction::test_invalid_input --tb=short
+        timeout: 10
+        max-score: 3
+    - name: Test 3.3
+      id: test-3-3
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 3.3
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task3_test.py::TestMainFunction::test_violet --tb=short
+        timeout: 10
+        max-score: 1
+    - name: Test 3.4
+      id: test-3-4
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 3.4
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task3_test.py::TestMainFunction::test_blue --tb=short
+        timeout: 10
+        max-score: 1
+    - name: Test 3.5
+      id: test-3-5
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 3.5
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task3_test.py::TestMainFunction::test_green --tb=short
+        timeout: 10
+        max-score: 1
+    - name: Test 3.6
+      id: test-3-6
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 3.6
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task3_test.py::TestMainFunction::test_yellow --tb=short
+        timeout: 10
+        max-score: 1
+    - name: Test 3.7
+      id: test-3-7
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 3.7
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task3_test.py::TestMainFunction::test_orange --tb=short
+        timeout: 10
+        max-score: 1
+    - name: Test 3.8
+      id: test-3-8
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 3.8
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task3_test.py::TestMainFunction::test_red --tb=short
+        timeout: 10
+        max-score: 1
+    - name: Test 7
+      id: test-7
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 7
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task7_test.py::TestMainFunction::test_input --tb=short
+        timeout: 10
+        max-score: 5
+    - name: Test 4.2
+      id: test-4-2
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 4.2
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task4_test.py::TestMainFunction::test_zodiac --tb=short
+        timeout: 10
+        max-score: 12
+    - name: Test 4.3
+      id: test-4-3
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 4.3
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task4_test.py::TestMainFunction::test_invalid_year --tb=short
+        timeout: 10
+        max-score: 3
+    - name: Test 5.1
+      id: test-5-1
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 5.1
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task5_test.py::TestMainFunction::test_main_input_calls
+          --tb=short
+        timeout: 10
+        max-score: 2
+    - name: Test 5.2
+      id: test-5-2
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 5.2
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task5_test.py::TestMainFunction::test_zodiac1 --tb=short
+        timeout: 10
+        max-score: 4
+    - name: Test 5.3
+      id: test-5-3
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 5.3
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task5_test.py::TestMainFunction::test_zodiac2 --tb=short
+        timeout: 10
+        max-score: 4
+    - name: Test 5.4
+      id: test-5-4
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 5.4
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task5_test.py::TestMainFunction::test_zodiac3 --tb=short
+        timeout: 10
+        max-score: 4
+    - name: Test 5.5
+      id: test-5-5
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 5.5
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task5_test.py::TestMainFunction::test_zodiac4 --tb=short
+        timeout: 10
+        max-score: 4
+    - name: Test 5.6
+      id: test-5-6
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 5.6
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task5_test.py::TestMainFunction::test_invalid_date --tb=short
+        timeout: 10
+        max-score: 2
+    - name: Test 6
+      id: test-6
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 6
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task6_test.py::TestMainFunction::test_input --tb=short
+        timeout: 10
+        max-score: 5
+    - name: Test 9
+      id: test-9
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 9
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task9_test.py::TestMainFunction::test_input --tb=short
+        timeout: 10
+        max-score: 6
+    - name: Test 10
+      id: test-10
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 10
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task10_test.py::TestMainFunction::test_input --tb=short
+        timeout: 10
+        max-score: 7
+    - name: Test 4.1
+      id: test-4-1
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 4.1
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task4_test.py::TestMainFunction::test_main_input_calls
+          --tb=short
+        timeout: 10
+        max-score: 3
+    - name: Test 8
+      id: test-8
+      uses: education/autograding-command-grader@v1
+      with:
+        test-name: Test 8
+        setup-command: sudo -H pip3 install pytest
+        command: pytest hw2task8_test.py::TestMainFunction::test_input --tb=short
+        timeout: 10
+        max-score: 5
+    - name: Autograding Reporter
+      uses: education/autograding-grading-reporter@v1
+      env:
+        TEST-1-1_RESULTS: "${{steps.test-1-1.outputs.result}}"
+        TEST-1-2_RESULTS: "${{steps.test-1-2.outputs.result}}"
+        TEST-1-3_RESULTS: "${{steps.test-1-3.outputs.result}}"
+        TEST-1-4_RESULTS: "${{steps.test-1-4.outputs.result}}"
+        TEST-2-1_RESULTS: "${{steps.test-2-1.outputs.result}}"
+        TEST-2-2_RESULTS: "${{steps.test-2-2.outputs.result}}"
+        TEST-2-3_RESULTS: "${{steps.test-2-3.outputs.result}}"
+        TEST-2-4_RESULTS: "${{steps.test-2-4.outputs.result}}"
+        TEST-2-5_RESULTS: "${{steps.test-2-5.outputs.result}}"
+        TEST-3-1_RESULTS: "${{steps.test-3-1.outputs.result}}"
+        TEST-3-2_RESULTS: "${{steps.test-3-2.outputs.result}}"
+        TEST-3-3_RESULTS: "${{steps.test-3-3.outputs.result}}"
+        TEST-3-4_RESULTS: "${{steps.test-3-4.outputs.result}}"
+        TEST-3-5_RESULTS: "${{steps.test-3-5.outputs.result}}"
+        TEST-3-6_RESULTS: "${{steps.test-3-6.outputs.result}}"
+        TEST-3-7_RESULTS: "${{steps.test-3-7.outputs.result}}"
+        TEST-3-8_RESULTS: "${{steps.test-3-8.outputs.result}}"
+        TEST-7_RESULTS: "${{steps.test-7.outputs.result}}"
+        TEST-4-2_RESULTS: "${{steps.test-4-2.outputs.result}}"
+        TEST-4-3_RESULTS: "${{steps.test-4-3.outputs.result}}"
+        TEST-5-1_RESULTS: "${{steps.test-5-1.outputs.result}}"
+        TEST-5-2_RESULTS: "${{steps.test-5-2.outputs.result}}"
+        TEST-5-3_RESULTS: "${{steps.test-5-3.outputs.result}}"
+        TEST-5-4_RESULTS: "${{steps.test-5-4.outputs.result}}"
+        TEST-5-5_RESULTS: "${{steps.test-5-5.outputs.result}}"
+        TEST-5-6_RESULTS: "${{steps.test-5-6.outputs.result}}"
+        TEST-6_RESULTS: "${{steps.test-6.outputs.result}}"
+        TEST-9_RESULTS: "${{steps.test-9.outputs.result}}"
+        TEST-10_RESULTS: "${{steps.test-10.outputs.result}}"
+        TEST-4-1_RESULTS: "${{steps.test-4-1.outputs.result}}"
+        TEST-8_RESULTS: "${{steps.test-8.outputs.result}}"
+      with:
+        runners: test-1-1,test-1-2,test-1-3,test-1-4,test-2-1,test-2-2,test-2-3,test-2-4,test-2-5,test-3-1,test-3-2,test-3-3,test-3-4,test-3-5,test-3-6,test-3-7,test-3-8,test-7,test-4-2,test-4-3,test-5-1,test-5-2,test-5-3,test-5-4,test-5-5,test-5-6,test-6,test-9,test-10,test-4-1,test-8
