@@ -1,16 +1,14 @@
 #import libraries here
 
 def main():
-  a-input()
-  while True:
-    b=a.find("/")|
-    if b>=0:
-      c=a[:b]
-      print (c)
-      a=a[b+1:]
-    else:
-      print (a)
-      break
+  a="bcdfghjklmnpqrstuvwxz"
+  b="aeiou"
+  k=input("Enter a letter of the alphabet: ")
+  if k in a:
+    print("Entered alphabet is a consonant!")
+  elif k in b:
+    print("Entered alphabet is a vowel!")
+  else: print("Sometimes it is a vowel, and sometimes it is a consonant!") 
   pass
 
 if __name__ == "__main__":
