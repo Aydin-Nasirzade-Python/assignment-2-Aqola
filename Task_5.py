@@ -3,8 +3,14 @@
 def main():
   month=input("Enter a month [ex. March]: ")
   day=int(input("Enter the day [ex. 12]: "))
-  a=['March','April','May','June','July','August','September','October','November','December','January',"February"]
-  if day>31 or not (month in a): print("Either a month or a day is invalid!")
+  a=['March','April','May','June','July','August','September','October','November','December','January','February']
+  if day>31 or month not in a: print("Either a month or a day is invalid!")
+  elif (month == 'December' and day >= 22) or (month == 'January' and day <= 19):
+    print("Your zodiac sign is Capricorn")
+  elif (month == "January" and day >= 20) or (month == "February" and day <= 18):
+    print("Your zodiac sign is Aquarius")
+  else (month == "February" and day >= 19) or (month == 'March' and day <= 20):
+    print("Your zodiac sign is Pisces")
   elif (month == 'March' and day >= 21) or (month == 'April' and day <= 19):
     print("Your zodiac sign is Aries")
   elif (month == 'April' and day >= 20) or (month == 'May' and day <= 20):
@@ -21,14 +27,10 @@ def main():
     print("Your zodiac sign is Libra")
   elif (month == 'October' and day >= 23) or (month == 'November' and day <= 21):
     print("Your zodiac sign is Scorpion")
-  elif (month == 'November' and day >= 22) or (month == 'December' and day <= 21):
+  else:
     print("Your zodiac sign is Sagittarius")
-  elif (month == 'December' and day >= 22) or (month == 'January' and day <= 19):
-    print("Your zodiac sign is Capricorn")
-  elif (month == "January" and day >= 20) or (month == "February" and day <= 18):
-    print("Your zodiac sign is Aquarius")
-  else :
-    print("Your zodiac sign is Pisces")
+  
+
 
   pass
 
