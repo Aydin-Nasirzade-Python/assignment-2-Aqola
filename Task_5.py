@@ -4,7 +4,7 @@ def main():
   month=input("Enter a month [ex. March]: ")
   day=float(input("Enter the day [ex. 12]: "))
   a=['March','April','May','June','July','August','September','October','November','December','January','February']
-  if day>31 or (day%1<1 and day%1!=0) or day<=0 or month not in a: print("Either a month or a day is invalid!")
+  if day>31 or day%1!=0 or day<=0 or month not in a: print("Either a month or a day is invalid!")
   elif (month == 'December' and day >= 22) or (month == 'January' and day <= 19):
     print("Your zodiac sign is Capricorn")
   elif (month == "January" and day >= 20) or (month == "February" and day <= 18):
