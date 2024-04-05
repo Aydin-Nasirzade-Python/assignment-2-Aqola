@@ -2,7 +2,8 @@
 
 def main():
   a=int(input("Enter the year [ex. 2021]: "))
-  if a==2000 or (a-2000)%12==0:
+  if a<0: print("Invalid year!")
+  elif a==2000 or (a-2000)%12==0:
     print(f"{a} is the year of the Dragon")
   elif a==2001 or (a-2001)%12==0:
     print(f"{a} is the year of the Snake")
@@ -24,9 +25,9 @@ def main():
     print(f"{a} is the year of the Ox")
   elif a==2010 or (a-2010)%12==0:
     print(f"{a} is the year of the Tiger")
-  elif a==2011 or (a-2011)%12==0:
+  else:
     print(f"{a} is the year of the Hare")
-  else: print("Invalid year!")
+  
   pass
 
 if __name__ == "__main__":
